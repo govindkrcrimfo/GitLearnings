@@ -1,18 +1,197 @@
-## Getting Started
+# Git Learning Topics
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+## **Creating a Branch (Local)**
 
-## Folder Structure
+-   How to create a new branch locally:
 
-The workspace contains two folders by default, where:
+    ``` bash
+    git branch <branch-name>
+    ```
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+-   How to switch to that branch:
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+    ``` bash
+    git checkout <branch-name>
+    # or
+    git switch <branch-name>
+    ```
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+------------------------------------------------------------------------
 
-## Dependency Management
+## **Creating a Branch on GitHub**
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+-   Pushing local branch to GitHub:
+
+    ``` bash
+    git push -u origin <branch-name>
+    ```
+
+-   Creating a branch directly on GitHub UI
+
+------------------------------------------------------------------------
+
+## **Working With Branches**
+
+-   Adding and committing changes
+
+    ``` bash
+    git add .
+    git commit -m "message"
+    ```
+
+-   Pushing multiple commits to a branch
+
+    ``` bash
+    git push
+    ```
+
+-   Checking branch differences
+
+    ``` bash
+    git diff
+    git log
+    ```
+
+------------------------------------------------------------------------
+
+## **Merging Branch to Main**
+
+-   Merging your feature branch into `main`:
+
+    ``` bash
+    git checkout main
+    git pull
+    git merge <branch-name>
+    ```
+
+-   Fast-forward vs non-fast-forward merge\
+
+-   Resolving merge conflicts
+
+------------------------------------------------------------------------
+
+## **Git Stash**
+
+-   What is `git stash`\
+
+-   Save uncommitted work:
+
+    ``` bash
+    git stash
+    ```
+
+-   View stashes:
+
+    ``` bash
+    git stash list
+    ```
+
+-   Apply stash:
+
+    ``` bash
+    git stash apply
+    ```
+
+-   Delete/Clear stashes:
+
+    ``` bash
+    git stash drop
+    git stash clear
+    ```
+
+------------------------------------------------------------------------
+
+## **Basic Git Commands**
+
+-   Initializing a repository:
+
+    ``` bash
+    git init
+    ```
+
+-   Checking status:
+
+    ``` bash
+    git status
+    ```
+
+-   Adding files:
+
+    ``` bash
+    git add <file>
+    git add .
+    ```
+
+-   Commit with message:
+
+    ``` bash
+    git commit -m "message"
+    ```
+
+-   Cloning repositories:
+
+    ``` bash
+    git clone <url>
+    ```
+
+-   Pulling latest changes:
+
+    ``` bash
+    git pull
+    ```
+
+-   Viewing history:
+
+    ``` bash
+    git log
+    ```
+
+------------------------------------------------------------------------
+
+## **Remote Repositories**
+
+-   Adding remote origin:
+
+    ``` bash
+    git remote add origin <url>
+    ```
+
+-   Fetch vs Pull\
+
+-   Removing and renaming remotes:
+
+    ``` bash
+    git remote rename origin old-origin
+    git remote remove origin
+    ```
+
+------------------------------------------------------------------------
+
+## **Undoing Things**
+
+-   Undo last commit:
+
+    ``` bash
+    git reset
+    # or
+    git revert <commit-id>
+    ```
+
+-   Remove file from staging:
+
+    ``` bash
+    git reset HEAD <file>
+    ```
+
+------------------------------------------------------------------------
+
+## **.gitignore**
+
+-   Why we use `.gitignore`\
+
+-   Adding folders/files to ignore list\
+    Example:
+
+        /target
+        /node_modules
+        *.log
