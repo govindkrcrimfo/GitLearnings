@@ -195,3 +195,6 @@
         /target
         /node_modules
         *.log
+
+## **.git merge command (from the < develeoped or main branch to current branch>)
+git rebase orging/<bracnh from which we need to merge the code >
