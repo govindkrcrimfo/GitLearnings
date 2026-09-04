@@ -1,5 +1,5 @@
+out/
 bin/
-out/
 .idea/
-out/
+*.iml
 GitLearnings.iml
