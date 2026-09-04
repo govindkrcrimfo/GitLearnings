@@ -1,200 +1,52 @@
-# Git Learning Topics
-
-## **Creating a Branch (Local)**
-
--   How to create a new branch locally:
-
-    ``` bash
-    git branch <branch-name>
-    ```
-
--   How to switch to that branch:
-
-    ``` bash
-    git checkout <branch-name>
-    # or
-    git switch <branch-name>
-    ```
-
-------------------------------------------------------------------------
-
-## **Creating a Branch on GitHub**
-
--   Pushing local branch to GitHub:
-
-    ``` bash
-    git push -u origin <branch-name>
-    ```
-
--   Creating a branch directly on GitHub UI
-
-------------------------------------------------------------------------
-
-## **Working With Branches**
-
--   Adding and committing changes
-
-    ``` bash
-    git add .
-    git commit -m "message"
-    ```
-
--   Pushing multiple commits to a branch
-
-    ``` bash
-    git push
-    ```
-
--   Checking branch differences
-
-    ``` bash
-    git diff
-    git log
-    ```
-
-------------------------------------------------------------------------
-
-## **Merging Branch to Main**
-
--   Merging your feature branch into `main`:
-
-    ``` bash
-    git checkout main
-    git pull
-    git merge <branch-name>
-    ```
-
--   Fast-forward vs non-fast-forward merge\
-
--   Resolving merge conflicts
-
-------------------------------------------------------------------------
-
-## **Git Stash**
-
--   What is `git stash`\
-
--   Save uncommitted work:
-
-    ``` bash
-    git stash
-    ```
-
--   View stashes:
-
-    ``` bash
-    git stash list
-    ```
-
--   Apply stash:
-
-    ``` bash
-    git stash apply
-    ```
-
--   Delete/Clear stashes:
-
-    ``` bash
-    git stash drop
-    git stash clear
-    ```
-
-------------------------------------------------------------------------
-
-## **Basic Git Commands**
-
--   Initializing a repository:
-
-    ``` bash
-    git init
-    ```
-
--   Checking status:
-
-    ``` bash
-    git status
-    ```
-
--   Adding files:
-
-    ``` bash
-    git add <file>
-    git add .
-    ```
-
--   Commit with message:
-
-    ``` bash
-    git commit -m "message"
-    ```
-
--   Cloning repositories:
-
-    ``` bash
-    git clone <url>
-    ```
-
--   Pulling latest changes:
-
-    ``` bash
-    git pull
-    ```
-
--   Viewing history:
-
-    ``` bash
-    git log
-    ```
-
-------------------------------------------------------------------------
-
-## **Remote Repositories**
-
--   Adding remote origin:
-
-    ``` bash
-    git remote add origin <url>
-    ```
-
--   Fetch vs Pull\
-
--   Removing and renaming remotes:
-
-    ``` bash
-    git remote rename origin old-origin
-    git remote remove origin
-    ```
-
-------------------------------------------------------------------------
-
-## **Undoing Things**
-
--   Undo last commit:
-
-    ``` bash
-    git reset
-    # or
-    git revert <commit-id>
-    ```
-
--   Remove file from staging:
-
-    ``` bash
-    git reset HEAD <file>
-    ```
-
-------------------------------------------------------------------------
-
-## **.gitignore**
-
--   Why we use `.gitignore`\
-
--   Adding folders/files to ignore list\
-    Example:
-
-        /target
-        /node_modules
-        *.log
-
-## **.git merge command (from the < develeoped or main branch to current branch>)
-git rebase orging/<bracnh from which we need to merge the code >
+# *** Git Notes ** 
+
+A concise, step-by-step guide to essential Git commands and concepts based on practical handwritten notes.
+---
+## 1. Basic Git Workflow & Commands
+
+| Step / Command | Usage | Description |
+| :--- | :--- | :--- |
+| *git init* | git init | Initialize a new local Git repository to track changes. |
+| *git status* | git status | Check the current status of files (untracked, modified, staged). |
+| *git add* | git add <filename> | Stage file changes for the next commit. |
+| *git commit* | git commit -m "commit msg" | Commit staged changes to local repository history. |
+| *git diff* | git diff | Show changes between working directory and staging area. |
+| *git rm* | git rm --cached <filename> | Remove file from staging area without deleting local file. |
+| *git remote* | git remote add origin <url> | Connect local repository to a remote repository URL. |
+| *git push* | git push origin main | Upload local commits to remote branch (main or any branch). |
+| *git clone* | git clone <ssh/https-url> | Copy a remote repository to your local machine. |
+
+---
+## 2. Remote Operations & Concepts
+* *Pull vs. Fetch*
+  * *git pull: Downloads latest code from remote **and* automatically merges it into your current working branch.
+  * *git fetch: Downloads information and code from remote **without* merging into your branch.
+* *Clone vs. Fork*
+  * *Clone*: Creates a local copy of a remote repository on your personal machine.
+  * *Fork*: Creates a server-side copy of another user's Git repository under your own remote account.
+---
+## 3. Git Branching
+1. *Create Branch*: git branch <branch-name> (e.g., git branch feature-login)
+2. *Switch Branch*: git switch <branch-name> or git checkout <branch-name>
+3. *Create & Switch*: git checkout -b <branch-name> or git switch -c <branch-name>
+4. *List Branches*:
+   * Local: git branch
+   * Remote: git branch -r
+5. *Delete Branch*: git branch -d <branch-name>
+6. *Push Branch to Remote*: git push origin <branch-name>
+---
+## 4. Merging Branches
+1. Switch to target main branch: git checkout main
+2. Fetch latest changes first: git pull origin main
+3. Merge feature branch into main: git merge <branch-name>
+4. Note: Resolve any merge conflicts manually if prompt appears.
+---
+## 5. Git Rebase vs. Merge
+* *git rebase <branch-name>*: Rewrites commit history into a clean, linear single-line sequence over main branch without merge commits.
+* *git merge <branch-name>*: Preserves full commit history, creating a distinct merge commit node.
+---
+## 6. Git Stash
+Temporarily saves working directory modifications without committing so you can switch branches cleanly.
+* *Save changes*: git stash
+* *List stashes*: git stash list
+* *Re-apply saved changes*: git stash apply
