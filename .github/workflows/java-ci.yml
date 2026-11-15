@@ -1,0 +1,34 @@
+
+name: Java CI Pipeline
+
+on:
+  push:
+    branches:
+      - '**'
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Compile Java Project
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      - name: Setup Java
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Compile Java files
+        run: |
+          mkdir -p build/classes
+          find src -name "*.java" -print0 | xargs -0 javac -d build/classes
+
+      - name: Build completed
+        run: echo "All Java files compiled successfully!"
