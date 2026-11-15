@@ -3,3 +3,6 @@ bin/
 .idea/
 *.iml
 GitLearnings.iml
+*.class
+bin/
+build/
